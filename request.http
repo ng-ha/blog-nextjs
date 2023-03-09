@@ -1,0 +1,29 @@
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "username": "aaaa",
+    "password": "123456"
+}
+
+###
+GET http://localhost:3000/api/students
+
+###
+POST http://localhost:3000/api/logout
+
+
+
+###
+
+GET https://js-post-api.herokuapp.com/api/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYWFhIiwiaWF0IjoxNjc3OTkxNDI4LCJleHAiOjE2NzgwNzc4Mjh9.o4L9Pa5s699yGG4gCZl30asDYh5L-RWsD4roWQc05TE
+###
+
+POST https://js-post-api.herokuapp.com/api/login
+Content-Type: application/json
+
+{
+    "username": "aaaa",
+    "password": "123456"
+}
