@@ -13,6 +13,8 @@ Rất nhiều bạn thắc mắc không biết là học ReactJS là học nhữ
 
 <!-- truncate-->
 
+## Agenda
+
 - **Đôi tượng**: mới bắt đầu học ReactJS mà không biết học những gì.
 - **Yêu cầu kiến thức**:
   - Javascript cơ bản: [https://javascript.info/](https://javascript.info/)

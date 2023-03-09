@@ -2,6 +2,7 @@ import axiosClient from '@/api-client/axiosClient';
 import { EmptyLayout } from '@/components/layout';
 import { AppPropsWithLayout } from '@/models';
 import '@/styles/globals.css';
+import '@/styles/prism.css';
 import { SWRConfig } from 'swr';
 
 import { createEmotionCache, theme } from '@/utils';

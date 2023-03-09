@@ -2,7 +2,7 @@ import { PostItem } from '@/components/blog';
 import { MainLayout } from '@/components/layout';
 import { Post } from '@/models';
 import { getBlogList } from '@/utils/blog';
-import { Box, Container, Divider, Link as MuiLink } from '@mui/material';
+import { Box, Container, Divider } from '@mui/material';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 
@@ -18,10 +18,8 @@ const BlogListPage = ({ posts }: BlogListPageProps) => {
         <Box component="ul" sx={{ listStyleType: 'none', p: 0 }}>
           {posts.map((post) => (
             <li key={post.id}>
-              <Link href={`blog/${post.slug}`} passHref legacyBehavior>
-                <MuiLink sx={{ '&: hover': { color: 'text.primary' } }}>
-                  <PostItem post={post} />
-                </MuiLink>
+              <Link href={`blog/${post.slug}`}>
+                <PostItem post={post} />
               </Link>
               <Divider sx={{ my: 3 }} />
             </li>

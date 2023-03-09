@@ -1,8 +1,21 @@
 import { MainLayout } from '@/components/layout';
 import { Post } from '@/models';
 import { getBlogList } from '@/utils/blog';
+import { Box, Container, Divider } from '@mui/material';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import Script from 'next/script';
 import React from 'react';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeDocument from 'rehype-document';
+import rehypeFormat from 'rehype-format';
+import rehypeSlug from 'rehype-slug';
+import rehypeStringify from 'rehype-stringify';
+import remarkParse from 'remark-parse';
+import remarkPrism from 'remark-prism';
+import remarkRehype from 'remark-rehype';
+import remarkToc from 'remark-toc';
+import { unified } from 'unified';
+import { reporter } from 'vfile-reporter';
 
 export interface BlogPageProps {
   post: Post;
@@ -10,13 +23,15 @@ export interface BlogPageProps {
 
 const BlogDetailPage = ({ post }: BlogPageProps) => {
   return (
-    <div>
-      <h1>Blog Detail Page</h1>
-      <p>{post.title}</p>
-      <p>{JSON.stringify(post.author)}</p>
-      <p>{post.description}</p>
-      <p>{post.mdContent}</p>
-    </div>
+    <Box>
+      <Container>
+        <h1>{post.title}</h1>
+        <p>{post.author?.name}</p>
+        <Divider />
+        <div dangerouslySetInnerHTML={{ __html: post.htmlContent || '' }}></div>
+      </Container>
+      <Script src="/prism.js" strategy="lazyOnload" />
+    </Box>
   );
 };
 BlogDetailPage.Layout = MainLayout;
@@ -41,6 +56,20 @@ export const getStaticProps: GetStaticProps<BlogPageProps> = async (
 
   const post = postList.find((x) => x.slug === slug);
   if (!post) return { notFound: true };
+
+  // convert md to html
+  const file = await unified()
+    .use(remarkParse)
+    .use(remarkToc, { heading: 'agenda.*' })
+    .use(remarkPrism, { plugins: ['line-numbers', 'command-line'] })
+    .use(remarkRehype)
+    .use(rehypeDocument)
+    .use(rehypeFormat)
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
+    .use(rehypeStringify)
+    .process(post.mdContent || '');
+  post.htmlContent = file.toString();
 
   return { props: { post } };
 };

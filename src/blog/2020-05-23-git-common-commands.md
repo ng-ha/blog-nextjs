@@ -13,7 +13,17 @@ Khi nhắc tới git có khá là nhiều lệnh khác nhau, tuy nhiên trong th
 
 <!-- truncate-->
 
+## Agenda
+
 ## 0. Nhận task, ví dụ ở đây task có id là 123
+
+```tsx[class="line-numbers"]
+function App() {
+  const [title, setTitle] = useState<string>('Hi there!');
+
+  return <p>{title}</p>;
+}
+```
 
 - Tí nữa, đọc thấy tạo nhánh có số 123 thì các bạn hiểu ngầm nó chính là `taskId` nhen.
 - Ví dụ team mình dev trên nhánh `develop`.
