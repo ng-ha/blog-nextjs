@@ -1,10 +1,10 @@
+import { Seo } from '@/components/common';
 import { MainLayout } from '@/components/layout';
 import { Post } from '@/models';
 import { getBlogList } from '@/utils/blog';
 import { Box, Container, Divider } from '@mui/material';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import Script from 'next/script';
-import React from 'react';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeDocument from 'rehype-document';
 import rehypeFormat from 'rehype-format';
@@ -15,7 +15,6 @@ import remarkPrism from 'remark-prism';
 import remarkRehype from 'remark-rehype';
 import remarkToc from 'remark-toc';
 import { unified } from 'unified';
-import { reporter } from 'vfile-reporter';
 
 export interface BlogPageProps {
   post: Post;
@@ -24,6 +23,18 @@ export interface BlogPageProps {
 const BlogDetailPage = ({ post }: BlogPageProps) => {
   return (
     <Box>
+      <Seo
+        data={{
+          title: `${post.title} | Nguyen Thanh Ha`,
+          description: post.description,
+          url: `${process.env.HOST_URL || 'https://learn-nextjs-ruddy-eight.vercel.app'}/blog/${
+            post.slug
+          }`,
+          thumbnailUrl:
+            post.thumbnailUrl ||
+            'https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80',
+        }}
+      />
       <Container>
         <h1>{post.title}</h1>
         <p>{post.author?.name}</p>

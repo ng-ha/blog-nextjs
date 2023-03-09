@@ -12,7 +12,7 @@ const Home: NextPageWithLayout = () => {
           title: 'My NextJS App | Nguyen Thanh Ha',
           description:
             'Step by step tutorials to build a full CRUD website using NextJS for beginners.',
-          url: 'https://google.com',
+          url: process.env.HOST_URL || 'https://learn-nextjs-ruddy-eight.vercel.app',
           thumbnailUrl:
             'https://images.unsplash.com/photo-1525789351284-e1e7de240152?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dW5zcGxhc2h8ZW58MHx8MHx8&w=1000&q=80',
         }}

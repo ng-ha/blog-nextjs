@@ -30,6 +30,7 @@ export async function getBlogList(): Promise<Post[]> {
       tagList: data.tags,
       publishedDate: data.date,
       mdContent: content,
+      thumbnailUrl: data.image,
     });
   }
 
