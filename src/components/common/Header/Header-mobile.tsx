@@ -1,4 +1,4 @@
-import { Box, Button, Drawer, List, Stack, Link as MuiLink, Fab, Menu } from '@mui/material';
+import { Box, Button, Drawer, List, Stack, Link as MuiLink, Fab, Menu, Icon } from '@mui/material';
 import { Container } from '@mui/system';
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -7,6 +7,8 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useAuth } from '@/hooks';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 export function HeaderMobile() {
   const [show, setShow] = useState(false);
   const router = useRouter();
@@ -22,11 +24,17 @@ export function HeaderMobile() {
           </Fab>
         </Box>
         <Drawer anchor="top" open={show} onClose={() => setShow(false)}>
-          <Stack textAlign="end" px={4} py={2} bgcolor="secondary.light">
+          <Stack px={4} py={2} bgcolor="secondary.light">
             {routeList.map((route) => (
               <Link key={route.path} href={route.path} passHref legacyBehavior>
                 <MuiLink
-                  sx={{ ml: 2, fontWeight: 500 }}
+                  sx={{
+                    ml: 2,
+                    fontWeight: 500,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                  }}
                   className={clsx({ active: router.pathname === route.path })}
                   py={1}
                   onClick={() => setShow(false)}
@@ -37,21 +45,38 @@ export function HeaderMobile() {
             ))}
             {isLoggedIn ? (
               <MuiLink
-                sx={{ ml: 2, fontWeight: 500, cursor: 'pointer', py: 1 }}
+                sx={{
+                  ml: 2,
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                  py: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'flex-end',
+                }}
                 onClick={() => {
                   logout();
                   setShow(false);
                 }}
               >
+                <Icon component={LogoutIcon} sx={{ fontSize: 28, color: 'inherit', mr: 0.5 }} />
                 Logout
               </MuiLink>
             ) : (
               <Link href="/login" passHref legacyBehavior>
                 <MuiLink
-                  sx={{ ml: 2, fontWeight: 500, py: 1 }}
+                  sx={{
+                    ml: 2,
+                    fontWeight: 500,
+                    py: 1,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                  }}
                   className={clsx({ active: router.pathname === '/login' })}
                   onClick={() => setShow(false)}
                 >
+                  <Icon component={LoginIcon} sx={{ fontSize: 28, color: 'inherit', mr: 0.5 }} />
                   Login
                 </MuiLink>
               </Link>
