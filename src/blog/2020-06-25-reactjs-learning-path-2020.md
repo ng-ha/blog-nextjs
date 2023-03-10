@@ -1,7 +1,7 @@
 ---
 slug: lo-trinh-hoc-reactjs-co-ban-2020
 title: Lộ trình học ReactJS cơ bản cho người mới bắt đầu 2020 🥰
-author: Hậu Nguyễn
+author: Harry Nguyen
 author_title: Senior Software Engineer at fram^
 author_url: https://github.com/paulnguyen-mn
 author_image_url: https://avatars3.githubusercontent.com/u/31444102?s=400&u=c545a527aa31843e1361462e410c0f51863e8e26&v=4

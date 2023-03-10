@@ -1,6 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import httpProxy from 'http-proxy';
 import Cookies from 'cookies';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 export const config = {
   api: {

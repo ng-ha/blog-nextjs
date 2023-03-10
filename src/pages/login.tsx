@@ -1,48 +1,34 @@
-import { authApi } from '@/api-client';
+import { LoginForm } from '@/components/auth';
+import { MainLayout } from '@/components/layout';
 import { useAuth } from '@/hooks';
+import { LoginPayLoad } from '@/models';
+import { Box, Paper, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
-import React from 'react';
 
 const LoginPage = () => {
   const router = useRouter();
-  const { profile, login, logout } = useAuth({ revalidateOnMount: false });
+  const { login } = useAuth({ revalidateOnMount: false });
 
-  const handleLogin = async () => {
+  const handleLoginSubmit = async (payload: LoginPayLoad) => {
     try {
-      await login();
-      router.push('/about');
+      await login(payload);
+      router.push('/');
     } catch (error) {
       console.log('Fail to login: ', error);
     }
   };
-  // const handleGetProfile = async () => {
-  //   try {
-  //     await logout();
-  //     console.log('redirect to login page');
-  //   } catch (error) {
-  //     console.log('Fail to get profile: ', error);
-  //   }
-  // };
-  const handleLogout = async () => {
-    try {
-      await logout();
-      console.log('redirect to login page');
-    } catch (error) {
-      console.log('Fail to logout: ', error);
-    }
-  };
+
   return (
-    <div>
-      <h1>Login Page</h1>
+    <Box>
+      <Paper elevation={4} sx={{ mt: 8, mx: 'auto', p: 4, maxWidth: '480px', textAlign: 'center' }}>
+        <Typography component="h1" variant="h5" fontWeight={700} mb={2}>
+          Login
+        </Typography>
 
-      <p>Profile: {JSON.stringify(profile || {}, null, 4)}</p>
-
-      <button onClick={handleLogin}>Login</button>
-      {/* <button onClick={handleGetProfile}>Get Profile</button> */}
-      <button onClick={handleLogout}>Logout</button>
-      <button onClick={() => router.push('/about')}>Go to about</button>
-    </div>
+        <LoginForm onSubmit={handleLoginSubmit} />
+      </Paper>
+    </Box>
   );
 };
-
+LoginPage.Layout = MainLayout;
 export default LoginPage;
