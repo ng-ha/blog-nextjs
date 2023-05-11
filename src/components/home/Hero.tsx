@@ -3,6 +3,7 @@ import { Stack, Container } from '@mui/system';
 import Image from 'next/image';
 import * as React from 'react';
 import avatar from '@/images/avatar.png';
+import Link from 'next/link';
 
 export function HeroSection() {
   return (
@@ -22,15 +23,16 @@ export function HeroSection() {
               marginBottom={{ xs: 2.5, md: 5 }}
             >
               Hi, I am Nguyen Ha, <br />
-              Web Developer
+              An explorer
             </Typography>
             <Typography variant="body1" marginBottom={{ xs: 2.5, md: 5 }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laborum, sed harum
-              dolorum rem temporibus odit qui, excepturi dolores earum corporis velit quae dolor.
+              A passionate web & mobile developer from Viet Nam
             </Typography>
-            <Button variant="contained" size="large">
-              Download Resume
-            </Button>
+            <Link href="https://portfolio-ng-ha.vercel.app/" target="_blank">
+              <Button variant="contained" size="large">
+                Go to personal portfolio
+              </Button>
+            </Link>
           </Box>
           <Box
             sx={{
