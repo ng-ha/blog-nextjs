@@ -15,7 +15,7 @@ export function Seo({ data }: SeoProps) {
   return (
     <Head>
       <title>{title}</title>
-      <link rel="icon" href="/logo.png" />
+      <link rel="icon" href="/favicon.png" />
 
       <meta name="title" content={title} />
       <meta name="description" content={description} />

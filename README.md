@@ -1,22 +1,20 @@
-# A Personal Blog written in NextJs, Typescipt and Material UI :crystal_ball:
+# A Personal Blog written in Typescipt with NextJs & Material UI :crystal_ball:
 
-![whatsapp-clone](./github-images/whatsapp-ng-ha.png)
+![blog](./github-images/blog.png)
+![blog2](./github-images/blog2.png)
 
 ### Link Demo 📌
 
-[https://whatsapp-ng-ha.vercel.app/](https://whatsapp-ng-ha.vercel.app/)
-
-### Features :computer:
-
-- Realtime chat 1-1 with anyone using Google email address
-- Authentication with **Google**
+[https://blog-ng-ha.vercel.app/](https://blog-ng-ha.vercel.app/)
 
 ### Technologies ✨
 
 - Typescipt
 - NextJs
-- Material UI & styled-components
-- Authentication & Database with Firebase
+- Material UI
+- Swr
+- React-hook-form + yup
+- Gray-matter + unified to work with file `markdown`
 
 ### License :right_anger_bubble:
 
