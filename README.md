@@ -1,4 +1,4 @@
-# A Personal Blog written in Typescipt with NextJs & Material UI :crystal_ball:
+# A Personal Blog written in `Typescipt` with `NextJs` & `Material UI` :crystal_ball:
 
 ![blog](./github-images/blog.png)
 ![blog2](./github-images/blog2.png)
@@ -9,12 +9,12 @@
 
 ### Technologies ✨
 
-- Typescipt
-- NextJs
-- Material UI
-- Swr
-- React-hook-form + yup
-- Gray-matter + unified to work with file `markdown`
+- `Typescipt`
+- `NextJs`
+- `Material UI`
+- `Swr`
+- `React-hook-form` + `yup`
+- `Gray-matter` + `unified` to work with file `markdown`
 
 ### License :right_anger_bubble:
 
